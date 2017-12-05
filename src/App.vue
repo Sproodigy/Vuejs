@@ -1,65 +1,67 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <h1>
-    <span v-bind:title="msg">
-      Подержи курсор надо мной пару секунд,
-      чтобы увидеть динамически связанное значение title!
-    </span>
-    </h1>
-    <h2>Основные ссылки</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Экосистема</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+     <head>
+      <meta charset="utf-8">
+      <title>align-content</title>
+     </head>
+     <body>
+      <div class="flex-cont">
+       <div class="yellow"></div>
+    </div>
+      <div class="flex-contain">
+       <div class="red"></div>
+       <div class="yellow"></div>
+       <div class="green"></div>
+      </div>
+     </body>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'app',
-  data () {
-    return {
-      msg: 'Добро пожаловать в Vue.js App' + new Date().toLocaleString()
-    }
-  }
-}
-</script>
+<style>
+ .flex-contain {
+  width: 100px;
+  height: 290px;
+  border: 2px solid #333;
+  margin: 30px;
+  padding: 30px;
+  /*display: flex;*/
+  /*flex-wrap: wrap;*/
+  align-content: center;
+ }
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+ .flex-contain div {
+  width: 90px; height: 90px;
+  border-radius: 90%;
+ }
 
-h1, h2 {
-  font-weight: normal;
-}
+ .flex-cont div {
+  width: 50px; height: 50px;
+  border-radius: 40%;
+ }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
+  .flex-cont {
+    padding: 30px;
+    background: blue;
+    flex-wrap: flex;
+    display: flex;
+    align-content: flex-end;
+    width: 190px; height: 90px;
+    border: 4pt dotted yellow;
+    border-radius: 40%;
+ }
 
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
+ .red { background: magenta; }
+ .yellow { background: yellow; }
+ .green { background: green; }
 </style>
+
+<!-- // <script> -->
+// export default {
+//   name: 'app',
+//   data () {
+//     return {
+//       msg: 'Добро пожаловать в Vue.js App' + new Date().toLocaleString()
+//     }
+//   }
+// }
+<!-- // </script> -->
