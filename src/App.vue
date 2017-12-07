@@ -18,10 +18,32 @@
  <figure class="center"><img src="//webref.ru/example/image/aquaria2.jpg" alt=""></figure>
  <figure class="right"><img src="//webref.ru/example/image/aquaria3.jpg" alt=""></figure>
 </div>
+<ul class="bar">
+ <li>1</li><li>2</li>
+ <li>3</li><li>4</li>
+ <li>5</li><li>6</li>
+ <li>7</li><li>8</li>
+ <li>&darr;</li>
+</ul>
 </div>
 </template>
 
 <style>
+.bar {
+ top:-10em; right:3em; /* Положение */
+ padding: .5em; /* Поля */
+ margin: 0; /* Отступы */
+ position: absolute; /* Абсолютное позиционирование */
+ width: 1em; /* Ширина */
+ background: #333; /* Цвет фона */
+ color: #fff; /* Цвет текста */
+ text-align: center; /* Выравнивание по центру */
+ /* Переход */
+ transition: top 1s ease-out 0.5s;
+}
+.bar:hover { top: 0; }
+
+
 .gallery {
    text-align: center; /* Выравниваем по центру */
    perspective: 800px; /* Перспектива */
