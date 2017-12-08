@@ -5,9 +5,11 @@
 <title>all</title>
 </head>
 <body>
-   <div class="creature"></div>
+   <!-- <div class="creature"></div> -->
+   <div class="ch-wrap"></div>
+   <button v-on:click="reverseMessage">Обратить порядок букв в сообщении</button>
  </body>
- <figure class="flip">
+ <!-- <figure class="flip">
  <div class="flip-face front"><img src="//webref.ru/example/image/squirrel.jpg" alt="Белка"></div>
  <figcaption class="flip-face back">
 <img src="http://www.factroom.ru/facts/wp-content/uploads/2014/02/Koshki-620x465.jpg" style="width: 250px; height: 273px">
@@ -18,14 +20,18 @@
  <figure class="center"><img src="//webref.ru/example/image/aquaria2.jpg" alt=""></figure>
  <figure class="right"><img src="//webref.ru/example/image/aquaria3.jpg" alt=""></figure>
 </div>
+
 <ul class="bar">
  <li>1</li><li>2</li>
  <li>3</li><li>4</li>
  <li>5</li><li>6</li>
  <li>7</li><li>8</li>
  <li>&darr;</li>
-</ul>
+</ul> -->
+
+
 </div>
+
 </template>
 
 <style>
@@ -118,8 +124,42 @@
    @-webkit-keyframes eye {
     90% { transform: none; }
     95% { transform: scaleY(0.1); }
-   }
+
+  .ch-wrap {
+    width: 400px;
+    height: 400px;
+    border: 1px solid #111;
+  }
+  .ch-item {
+    width: 50px;
+    height: 50px;
+    float: left;
+  }
+  .ch-black {
+    background: #111;
+  }
+  }
  </style>
+
+<script>
+   var chessWrap = document.querySelector('.ch-wrap');
+
+    var i = 0, count = 0;
+
+    while (count < 8 * 8) {
+      var item = document.createElement('div');
+      chessWrap.appendChild(item);
+
+      item.classList.add('ch-item');
+
+      if (i && i % 2)
+        item.classList.add('ch-black')
+
+      i += ((i + 2) % 9) ? 1 : 2;
+      count++;
+    }
+</script>
+
 
 <!-- // <script> -->
 // export default {

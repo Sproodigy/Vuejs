@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+  <!-- <script src="https://unpkg.com/vue"></script> -->
+</head>
+<body>
+  <div id="app">
+    <!-- <div class="ch-wrap"></div> -->
+      <!-- <canvas id='can' width="300" height="225"></canvas> -->
+      <canvas id="c" width="500" height="380"></canvas>
+    </div>
+  </div>
+
+  <style>
+    #can {
+      border-color: green;
+      border-style: solid;
+    }
+
+    #c {
+      border-color: red green blue magenta;
+      border-style: solid;
+    }
+  </style>
+
+  <script>
+
+    function draw_b() {
+      var b_canvas = document.getElementById("can");
+      var b_context = b_canvas.getContext("2d");
+      b_context.fillRect(50, 25, 150, 100);
+      b_context.strokeRect(150, 140, 60, 56);
+    }
+
+    // draw_b()
+
+    const draw_c = (width, height, incr) => {
+      var c_canvas = document.getElementById("c");
+      var context = c_canvas.getContext("2d");
+
+      c_canvas.setAttribute("width", width);
+      c_canvas.setAttribute("height", height);
+
+      for (var x = 0.5; x < 500; x += incr) {
+        context.moveTo(x, 0);
+        context.lineTo(x, 380);
+      }
+
+      for (var y = 0.5; y < 380; y += incr) {
+        context.moveTo(0, y);
+        context.lineTo(500, y);
+      }
+
+      context.strokeStyle = "silver";
+      context.stroke();
+
+      context.beginPath();
+      context.moveTo(0, 40);
+      context.lineTo(240, 40);
+      context.moveTo(260, 40);
+      context.lineTo(500, 40);
+      context.moveTo(495, 35);
+      context.lineTo(500, 40);
+      context.lineTo(495, 45);
+
+      context.moveTo(60, 0);
+      context.lineTo(60, 153);
+      context.moveTo(60, 173);
+      context.lineTo(60, 375);
+      context.moveTo(65, 370);
+      context.lineTo(60, 375);
+      context.lineTo(55, 370);
+
+      context.font = "bold 12px sans-serif";
+      context.fillText("x", 248, 43);
+      context.fillText("y", 58, 165);
+
+      context.strokeStyle = "#000";
+      context.stroke();
+
+      context.textBaseline = "top";
+      context.fillText("( 0 , 0 )", 8, 5);
+    }
+
+    draw_c(200, 100, 10)
+
+  </script>
+
+</body>
+</html
